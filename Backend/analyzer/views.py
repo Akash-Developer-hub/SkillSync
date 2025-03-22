@@ -12,19 +12,18 @@ import os
 from dotenv import load_dotenv
 import json  # Added missing import
 
-# Load environment variables
 load_dotenv()
 
-# MongoDB configuration
-client = MongoClient(os.getenv("MONGODB_URI"))
-db = client[os.getenv("ANALYZER_DB_NAME")]  # MongoDB Database Name
-grid_fs = GridFS(db)  # GridFS for file storage
-analysis_collection = db[os.getenv("ANALYZER_ANALYSIS_COLLECTION")]  # MongoDB Collection Name
 
-# Set up logging for debugging
+client = MongoClient(os.getenv("MONGODB_URI"))
+db = client[os.getenv("ANALYZER_DB_NAME")]  
+grid_fs = GridFS(db)  
+analysis_collection = db[os.getenv("ANALYZER_ANALYSIS_COLLECTION")]  
+
+
 logger = logging.getLogger(__name__)
 
-# Fetch API key from settings
+
 api_key = settings.API_KEY
 
 @csrf_exempt

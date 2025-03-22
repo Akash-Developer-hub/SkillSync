@@ -7,15 +7,12 @@ from pymongo import MongoClient
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
 load_dotenv()
 
-# MongoDB configuration
 client = MongoClient(os.getenv("MONGODB_URI"))
-db = client[os.getenv("MONGODB_DB_NAME")]  # MongoDB Database Name
-userinfo_collection = db[os.getenv("MONGODB_COLLECTION_NAME")]  # MongoDB Collection Name
+db = client[os.getenv("MONGODB_DB_NAME")]
+userinfo_collection = db[os.getenv("MONGODB_COLLECTION_NAME")]  
 
-# Set up logging
 logger = logging.getLogger(__name__)
 
 @csrf_exempt
@@ -28,7 +25,7 @@ def save_user_info(request):
     try:
         data = json.loads(request.body)
 
-        # Extract fields from the request
+
         personal_info = data.get('personalInfo', {})
         email = personal_info.get('email')
         full_name = personal_info.get('name', '')
@@ -42,17 +39,16 @@ def save_user_info(request):
         experience = data.get('experience', [])
         skills = data.get('skills', [])
 
-        # Ensure skills is a list of strings
+
         skills_str = [skill['label'] for skill in skills if isinstance(skill, dict) and 'label' in skill]
 
-        # Check if the user already exists
         existing_user = userinfo_collection.find_one({"email": email})
         if existing_user:
-            # Delete the old user entry
+
             userinfo_collection.delete_one({"email": email})
             logger.info("Deleted old user entry with email: %s", email)
 
-        # Save the new user info to MongoDB
+       
         user_data = {
             "email": email,
             "full_name": full_name,
@@ -112,7 +108,7 @@ def fetch_latest_user_info(request):
     Fetch the latest user information from MongoDB.
     """
     try:
-        latest_user = userinfo_collection.find_one(sort=[("_id", -1)])  # Fetch the most recent document
+        latest_user = userinfo_collection.find_one(sort=[("_id", -1)]) 
 
         if not latest_user:
             logger.warning("No user data found.")

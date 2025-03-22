@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FileSearch, Sparkles, Target, Award, BriefcaseIcon, GraduationCap, Code, User } from 'lucide-react';
@@ -30,31 +30,30 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-16">
-      <div className="absolute top-6 right-6">
-        <button
-          className="flex items-center px-4 py-2 bg-gray-100 rounded-full text-gray-700 hover:bg-gray-200 focus:outline-none"
-          onClick={() => setShowLogout(!showLogout)}
-        >
-          <User className="h-5 w-5 mr-2" />
-          <span>Profile</span>
-        </button>
+        <div className="absolute top-6 right-6">
+          <button
+            className="flex items-center px-4 py-2 bg-gray-100 rounded-full text-gray-700 hover:bg-gray-200 focus:outline-none"
+            onClick={() => setShowLogout(!showLogout)}
+          >
+            <User className="h-5 w-5 mr-2" />
+            <span>Profile</span>
+          </button>
 
-        {/* Logout Button with Transition */}
-        <div
-          className={`transition-all duration-300 ease-in-out transform ${
-            showLogout
+          {/* Logout Button with Transition */}
+          <div
+            className={`transition-all duration-300 ease-in-out transform ${showLogout
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 -translate-y-4 pointer-events-none'
-          }`}
-        >
-          <button
-            className="mt-2 px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none"
-            onClick={handleLogout}
+              }`}
           >
-            Logout
-          </button>
+            <button
+              className="mt-2 px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          </div>
         </div>
-      </div>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">Elevate Your Resume</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">

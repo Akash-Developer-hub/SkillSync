@@ -137,10 +137,10 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 GENAI_API_KEY = "AIzaSyBr4OM66nCb7l96ESxnj3hHY3t43nzelOU"
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','https://resumino-frontend.vercel.app','resumino-backend.onrender.com',]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','https://Skill Sync-frontend.vercel.app','Skill Sync-backend.onrender.com',]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000", "https://resumino-frontend.vercel.app"
+    "http://localhost:3000", "https://Skill Sync-frontend.vercel.app"
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins (development)

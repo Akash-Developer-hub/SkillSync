@@ -42,46 +42,46 @@ const Login = () => {
     return isValid;
   };
 
-  
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (!validateForm()) return;
 
-  setIsLoading(true);
-  try {
-    const response = await fetch('http://localhost:8000/api/login/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
 
-    if (response.ok) {
-      const data = await response.json();
-      toast.success('Login successful!', {
-        autoClose: 500, // The toast will automatically close after 3 seconds
-        onClose: () => {
-          // Navigate after the toast message is closed
-          navigate('/home');
-        }
+    setIsLoading(true);
+    try {
+      const response = await fetch('http://localhost:8000/api/login/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
-    } else {
-      const data = await response.json();
-      toast.error(data.error || 'Login failed', {
+
+      if (response.ok) {
+        const data = await response.json();
+        toast.success('Login successful!', {
+          autoClose: 500, // The toast will automatically close after 3 seconds
+          onClose: () => {
+            // Navigate after the toast message is closed
+            navigate('/home');
+          }
+        });
+      } else {
+        const data = await response.json();
+        toast.error(data.error || 'Login failed', {
+          autoClose: 3000 // The toast will automatically close after 3 seconds
+        });
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      toast.error('An error occurred. Please try again.', {
         autoClose: 3000 // The toast will automatically close after 3 seconds
       });
+    } finally {
+      setIsLoading(false);
     }
-  } catch (error) {
-    console.error('Login error:', error);
-    toast.error('An error occurred. Please try again.', {
-      autoClose: 3000 // The toast will automatically close after 3 seconds
-    });
-  } finally {
-    setIsLoading(false);
-  }
-};
+  };
 
-  
+
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -129,9 +129,8 @@ const handleSubmit = async (e) => {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className={`appearance-none block w-full pl-10 px-3 py-2 border ${
-                    errors.email ? 'border-red-300' : 'border-gray-300'
-                  } rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
+                  className={`appearance-none block w-full pl-10 px-3 py-2 border ${errors.email ? 'border-red-300' : 'border-gray-300'
+                    } rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
                   placeholder="you@example.com"
                 />
               </div>
@@ -153,9 +152,8 @@ const handleSubmit = async (e) => {
                   type="password"
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                  className={`appearance-none block w-full pl-10 px-3 py-2 border ${
-                    errors.password ? 'border-red-300' : 'border-gray-300'
-                  } rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
+                  className={`appearance-none block w-full pl-10 px-3 py-2 border ${errors.password ? 'border-red-300' : 'border-gray-300'
+                    } rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
                   placeholder="••••••••"
                 />
               </div>

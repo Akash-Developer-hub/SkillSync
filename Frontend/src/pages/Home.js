@@ -72,24 +72,24 @@ const Home = () => {
     { 
       icon: <Award className="h-6 w-6 text-blue-600" />, 
       title: 'Overall Impact', 
-      description: 'Get a comprehensive overview of your resume\'s effectiveness.' 
+      description: 'Gain a holistic assessment of your resume’s strength and effectiveness.' 
     },
     { 
       icon: <BriefcaseIcon className="h-6 w-6 text-blue-600" />, 
       title: 'Work Experience', 
-      description: 'Analyze how well your experience matches job requirements.' 
+      description: 'Evaluate how well your professional background aligns with industry expectations.' 
     },
     { 
       icon: <GraduationCap className="h-6 w-6 text-blue-600" />, 
       title: 'Education', 
-      description: 'Evaluate the presentation of your academic achievements.' 
+      description: 'Analyze the clarity and impact of your academic credentials.' 
     },
     { 
       icon: <Code className="h-6 w-6 text-blue-600" />, 
       title: 'Skills & Technologies', 
-      description: 'Assess your technical competencies and skill relevance.' 
+      description: 'Measure the relevance and proficiency of your technical expertise.' 
     },
-  ];
+];
 
   return (
     <div className="min-h-screen bg-white">

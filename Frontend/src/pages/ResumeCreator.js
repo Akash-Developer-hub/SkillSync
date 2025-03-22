@@ -92,8 +92,8 @@ function ResumeForm() {
       section === "education"
         ? { degree: "", institution: "", year: "" }
         : section === "experience"
-        ? { role: "", company: "", duration: "", description: "" }
-        : { title: "", description: "" };
+          ? { role: "", company: "", duration: "", description: "" }
+          : { title: "", description: "" };
 
     setFormData((prev) => ({
       ...prev,
@@ -428,40 +428,39 @@ function ResumeForm() {
           Reset Form
         </button>
         <button
-        className={`py-2 px-4 rounded text-white ${
-          loading ? "bg-gray-400" : "bg-green-500"
-        }`}
-        onClick={handleSubmit}
-        disabled={loading} // Disable button while loading
-      >
-        {loading ? (
-          <div className="flex items-center justify-center">
-            <svg
-              className="animate-spin h-5 w-5 mr-2 text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8v8H4zm2 5.292V12H2.708A8.002 8.002 0 016 17.292z"
-              ></path>
-            </svg>
-            Processing...
-          </div>
-        ) : (
-          "Submit Resume"
-        )}
-      </button>
+          className={`py-2 px-4 rounded text-white ${loading ? "bg-gray-400" : "bg-green-500"
+            }`}
+          onClick={handleSubmit}
+          disabled={loading} // Disable button while loading
+        >
+          {loading ? (
+            <div className="flex items-center justify-center">
+              <svg
+                className="animate-spin h-5 w-5 mr-2 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v8H4zm2 5.292V12H2.708A8.002 8.002 0 016 17.292z"
+                ></path>
+              </svg>
+              Processing...
+            </div>
+          ) : (
+            "Submit Resume"
+          )}
+        </button>
       </div>
     </div>
   );

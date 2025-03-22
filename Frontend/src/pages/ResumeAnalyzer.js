@@ -99,35 +99,34 @@ const ResumeAnalyzer = () => {
                 </div>
 
                 <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Upload Resume
-                </label>
-                <label
-                  onDragOver={handleDragOver}
-                  onDragLeave={handleDragLeave}
-                  onDrop={handleDrop}
-                  className={`flex flex-col items-center justify-center w-full h-40 border-2 border-dashed rounded-lg cursor-pointer bg-white transition ${
-                    isDragging
-                      ? "border-blue-500"
-                      : "border-gray-300 hover:border-blue-400"
-                  }`}
-                >
-                  <Upload className="h-12 w-12 text-gray-500" />
-                  <p className="mt-2 text-sm text-gray-500">
-                    Drag and drop your resume here, or click to browse
-                  </p>
-                  {file && (
-                    <p className="mt-2 text-sm text-gray-700 font-medium">
-                      Selected: {file.name}
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Upload Resume
+                  </label>
+                  <label
+                    onDragOver={handleDragOver}
+                    onDragLeave={handleDragLeave}
+                    onDrop={handleDrop}
+                    className={`flex flex-col items-center justify-center w-full h-40 border-2 border-dashed rounded-lg cursor-pointer bg-white transition ${isDragging
+                        ? "border-blue-500"
+                        : "border-gray-300 hover:border-blue-400"
+                      }`}
+                  >
+                    <Upload className="h-12 w-12 text-gray-500" />
+                    <p className="mt-2 text-sm text-gray-500">
+                      Drag and drop your resume here, or click to browse
                     </p>
-                  )}
-                  <input
-                    type="file"
-                    className="hidden"
-                    accept=".pdf"
-                    onChange={handleFileInput}
-                  />
-                </label>
+                    {file && (
+                      <p className="mt-2 text-sm text-gray-700 font-medium">
+                        Selected: {file.name}
+                      </p>
+                    )}
+                    <input
+                      type="file"
+                      className="hidden"
+                      accept=".pdf"
+                      onChange={handleFileInput}
+                    />
+                  </label>
                 </div>
 
                 <motion.button
@@ -135,11 +134,10 @@ const ResumeAnalyzer = () => {
                   whileTap={{ scale: 0.98 }}
                   onClick={analyzeResume}
                   disabled={isLoading || !file || !jobDescription}
-                  className={`w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center space-x-2 ${
-                    isLoading || !file || !jobDescription
-                      ?"bg-gray-300 cursor-not-allowed text-gray-500" // Disabled state
-      : "bg-blue-600 hover:bg-blue-700 text-white"
-                  }`}
+                  className={`w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center space-x-2 ${isLoading || !file || !jobDescription
+                      ? "bg-gray-300 cursor-not-allowed text-gray-500" // Disabled state
+                      : "bg-blue-600 hover:bg-blue-700 text-white"
+                    }`}
                 >
                   {isLoading ? (
                     <div className="animate-spin rounded-full h-5 w-5 border-2 border-blue border-t-transparent" />

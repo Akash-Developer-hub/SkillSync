@@ -3,9 +3,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import ScoreMeter from '../components/ScoreMeter';
 import SectionButton from '../components/SectionButton';
 import SectionDetail from '../components/SectionDetail';
-import { 
-  FileText, BriefcaseIcon, GraduationCap, Award, 
-  Code, Layout, Layers, Palette, Download 
+import {
+  FileText, BriefcaseIcon, GraduationCap, Award,
+  Code, Layout, Layers, Palette, Download
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import jsPDF from 'jspdf';
@@ -20,7 +20,7 @@ const ResumeAnalysis = () => {
   useEffect(() => {
     // Check if analysis data was passed during navigation
     const { analysisResult } = location.state || {};
-    
+
     if (!analysisResult) {
       // Redirect back to upload page if no data
       navigate('/');
@@ -166,7 +166,7 @@ const ResumeAnalysis = () => {
         }
       }
     ];
-    
+
     setActiveSection(transformedSections[0]);
     setAnalysisData({
       sections: transformedSections,
@@ -217,7 +217,7 @@ const ResumeAnalysis = () => {
           <div className="px-6 mb-8">
             <ScoreMeter score={analysisData.overallScore} sections={analysisData.sections} />
           </div>
-          
+
           {/* Adjust grid layout for better space utilization */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
             {/* Increase section list width */}
@@ -243,7 +243,7 @@ const ResumeAnalysis = () => {
                 <span>Download Full Report</span>
               </motion.button>
             </div>
-            
+
             {/* Increase detail section width */}
             <div className="md:col-span-3">
               <div className="bg-white rounded-lg shadow-sm p-6">

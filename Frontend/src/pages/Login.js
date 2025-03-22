@@ -42,8 +42,6 @@ const Login = () => {
     return isValid;
   };
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -81,8 +79,6 @@ const Login = () => {
     }
   };
 
-
-
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md mx-auto">
@@ -95,7 +91,6 @@ const Login = () => {
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Home
         </motion.button>
-
         <div className="bg-white py-8 px-4 shadow-lg rounded-lg sm:px-10">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
             <div className="flex items-center justify-center">
@@ -138,7 +133,6 @@ const Login = () => {
                 <p className="mt-2 text-sm text-red-600">{errors.email}</p>
               )}
             </div>
-
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                 Password
@@ -199,7 +193,6 @@ const Login = () => {
         </div>
       </div>
 
-      {/* Toast Container for rendering the toast notifications */}
       <ToastContainer />
     </div>
   );
